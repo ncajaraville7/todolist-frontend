@@ -1,6 +1,4 @@
-import { useState, useEffect, createContext } from 'react';
-
-import { useNavigate } from 'react-router-dom';
+import { useState, createContext } from 'react';
 
 import axios from 'axios';
 
@@ -11,8 +9,6 @@ const TaskContextProvider = ({ children }) => {
   const [tasksList, setTasksList] = useState([]);
   const [alert, setAlert] = useState({});
   const [taskEdit, setTaskEdit] = useState({});
-
-  const navigate = useNavigate();
 
   const submitTask = async () => {
     const token = localStorage.getItem('userToken');
@@ -65,12 +61,8 @@ const TaskContextProvider = ({ children }) => {
       },
     };
 
-    try {
-      const response = await axios.get(url, config);
-      setTasksList(response.data);
-    } catch (error) {
-      console.log(error);
-    }
+    const response = await axios.get(url, config);
+    setTasksList(response.data);
   };
 
   const deleteTask = async (id) => {
@@ -172,17 +164,6 @@ const TaskContextProvider = ({ children }) => {
     submitTask();
   };
 
-  const singOut = () => {
-    localStorage.removeItem('userToken');
-    navigate('/');
-    setTasksList([]);
-    setUserData({});
-  };
-
-  useEffect(() => {
-    getTasks();
-  }, []);
-
   return (
     <TaskContext.Provider
       value={{
@@ -199,7 +180,6 @@ const TaskContextProvider = ({ children }) => {
         completeTask,
         editTask,
         handleSubmit,
-        singOut,
       }}
     >
       {children}

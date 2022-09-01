@@ -12,8 +12,8 @@ import TaskContextProvider from './context/TaskContext';
 function App() {
   return (
     <BrowserRouter>
-      <AuthContextProvider>
-        <TaskContextProvider>
+      <TaskContextProvider>
+        <AuthContextProvider>
           <Routes>
             <Route path="/" element={<AuthLayout />}>
               <Route index element={<Login />} />
@@ -24,8 +24,8 @@ function App() {
               <Route index element={<TasksList />} />
             </Route>
           </Routes>
-        </TaskContextProvider>
-      </AuthContextProvider>
+        </AuthContextProvider>
+      </TaskContextProvider>
     </BrowserRouter>
   );
 }

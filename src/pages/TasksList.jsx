@@ -5,23 +5,16 @@ import { TaskContext } from '../context/TaskContext';
 
 import { FaUserAlt } from 'react-icons/fa';
 
-import Alert from '../components/Alert';
-import Tasks from '../components/Tasks';
 import { AnimatePresence } from 'framer-motion';
 
-const TasksList = () => {
-  const { userData } = useContext(AuthContext);
+import Alert from '../components/Alert';
+import Tasks from '../components/Tasks';
 
-  const {
-    singOut,
-    alert,
-    submitTask,
-    task,
-    setTask,
-    taskEdit,
-    tasksList,
-    handleSubmit,
-  } = useContext(TaskContext);
+const TasksList = () => {
+  const { userData, singOut } = useContext(AuthContext);
+
+  const { alert, task, setTask, taskEdit, tasksList, handleSubmit } =
+    useContext(TaskContext);
 
   const { name } = userData;
 
@@ -70,7 +63,7 @@ const TasksList = () => {
       </form>
 
       <div>
-        {tasksList.length < 1 ? (
+        {!tasksList.length ? (
           <h2 className="text-center mt-5 font-black text-3xl uppercase text-gray-500">
             No hay tareas
           </h2>
