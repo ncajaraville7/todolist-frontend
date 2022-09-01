@@ -12,7 +12,8 @@ const TaskContextProvider = ({ children }) => {
 
   const submitTask = async () => {
     const token = localStorage.getItem('userToken');
-    const url = 'http://localhost:4000/api/tasks/';
+    const url =
+      'https://todo-list-backend-production.up.railway.app/api/tasks/';
 
     if (!task) {
       setAlert({
@@ -52,7 +53,8 @@ const TaskContextProvider = ({ children }) => {
 
   const getTasks = async () => {
     const token = localStorage.getItem('userToken');
-    const url = 'http://localhost:4000/api/tasks/';
+    const url =
+      'https://todo-list-backend-production.up.railway.app/api/tasks/';
 
     const config = {
       headers: {
@@ -67,7 +69,7 @@ const TaskContextProvider = ({ children }) => {
 
   const deleteTask = async (id) => {
     const token = localStorage.getItem('userToken');
-    const url = `http://localhost:4000/api/tasks/${id}`;
+    const url = `https://todo-list-backend-production.up.railway.app/api/tasks/${id}`;
 
     const config = {
       headers: {
@@ -91,7 +93,7 @@ const TaskContextProvider = ({ children }) => {
 
   const completeTask = async (id) => {
     const token = localStorage.getItem('userToken');
-    const url = `http://localhost:4000/api/tasks/${id}`;
+    const url = `https://todo-list-backend-production.up.railway.app/api/tasks/${id}`;
 
     const config = {
       headers: {
@@ -134,7 +136,7 @@ const TaskContextProvider = ({ children }) => {
 
     if (taskEdit._id) {
       const token = localStorage.getItem('userToken');
-      const url = `http://localhost:4000/api/tasks/${taskEdit._id}`;
+      const url = `https://todo-list-backend-production.up.railway.app/api/tasks/${taskEdit._id}`;
 
       const config = {
         headers: {

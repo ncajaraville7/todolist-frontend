@@ -19,7 +19,8 @@ const AuthContextProvider = ({ children }) => {
   const authenticateUser = async () => {
     const token = localStorage.getItem('userToken');
 
-    const url = 'http://localhost:4000/api/users/profile';
+    const url =
+      'https://todo-list-backend-production.up.railway.app/api/users/profile';
 
     if (!token) {
       setLoading(false);

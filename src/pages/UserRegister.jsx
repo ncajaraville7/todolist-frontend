@@ -17,7 +17,8 @@ const UserRegister = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const url = 'http://localhost:4000/api/users/register';
+    const url =
+      'https://todo-list-backend-production.up.railway.app/api/users/register';
 
     if (!name || !email || !password || !repassword) {
       setAlert({

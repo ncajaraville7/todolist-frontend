@@ -23,7 +23,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = 'http://localhost:4000/api/users/login';
+    const url =
+      'https://todo-list-backend-production.up.railway.app/api/users/login';
 
     if (!email || !password) {
       setAlert({
